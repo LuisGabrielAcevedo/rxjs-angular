@@ -1,0 +1,30 @@
+<div class="table">
+  <div class="table__content">
+    <!-- Headers -->
+    <div class="table__headers d-flex align-items-center">
+      <div *ngIf="expand" class="table__small p-2"></div>
+      <div *ngFor="let header of headers" class="p-2 table--flex">
+        <span>{{ header.label }}</span>
+      </div>
+      <div class="table__button p-2" *ngFor="let button of rowActions"></div>
+    </div>
+    <!-- Loading -->
+    <!-- Data -->
+    <div class="table__data">
+      <div class="table__data__row" *ngFor="let item of data; index as i">
+        <div class="table__data__item d-flex align-items-center">
+          <div *ngIf="expand" class="table__small p-2">
+            <span class="fa fa-angle-up"></span>
+          </div>
+          <div *ngFor="let data of headers" class="p-2 table--flex">
+            <span>Component</span>
+          </div>
+          <div class="table__button p-2" *ngFor="let button of rowActions">
+            <app-button></app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Pagination -->
+  </div>
+</div>

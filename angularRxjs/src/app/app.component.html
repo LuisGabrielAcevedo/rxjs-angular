@@ -1,1 +1,10 @@
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
+<div style="margin: 20px;">
+  <app-table
+    [headers]="headers"
+    [data]="data"
+    [rowActions]="rowActions"
+    [pagination]="pagination"
+    [expand]="true"
+  ></app-table>
+</div>

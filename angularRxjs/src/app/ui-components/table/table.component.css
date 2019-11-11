@@ -1,0 +1,41 @@
+/* .table {
+} */
+
+.table__content {
+  font-size: 13px;
+}
+
+.table__headers {
+  color: #212529;
+  font-weight: 700;
+  height: 43px;
+  border-bottom: 1px solid #adb5bd;
+}
+
+/* .table__data {
+} */
+
+.table__data__row {
+  border-bottom: 1px solid #adb5bd;
+  min-height: 43px;
+}
+
+.table__data__row:nth-child(odd) {
+  background-color: #f3f4f4;
+}
+
+.table__data__item {
+  height: 43px;
+}
+
+.table__button {
+  width: 100px;
+}
+
+.table__small {
+  width: 50px;
+}
+
+.table--flex {
+  flex: 1 1 0%;
+}
