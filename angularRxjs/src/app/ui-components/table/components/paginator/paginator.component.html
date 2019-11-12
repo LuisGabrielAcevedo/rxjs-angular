@@ -1,1 +1,38 @@
-<p>paginator works!</p>
+<div *ngIf="paginatorData" class="paginator d-flex flex-row">
+  <div
+    class="page paginator__icon"
+    [ngClass]="{ 'icon--disabled': paginatorData.page === 1 }"
+    (click)="fisrtPage()"
+  >
+    <span><<</span>
+  </div>
+  <div
+    class="page paginator__icon"
+    [ngClass]="{ 'icon--disabled': paginatorData.page === 1 }"
+    (click)="prevPage()"
+  >
+    <span><</span>
+  </div>
+  <div
+    *ngFor="let p of paginatorData.tmpPages"
+    (click)="changePage(p)"
+    class="page paginator__page"
+    [ngClass]="{ 'page--active': p === paginatorData.page }"
+  >
+    <span>{{ p }}</span>
+  </div>
+  <div
+    class="page paginator__icon"
+    [ngClass]="{ 'icon--disabled': paginatorData.page === paginatorData.pages }"
+    (click)="nextPage()"
+  >
+    <span>></span>
+  </div>
+  <div
+    class="page paginator__icon"
+    [ngClass]="{ 'icon--disabled': paginatorData.page === paginatorData.pages }"
+    (click)="lastPage()"
+  >
+    <span>>></span>
+  </div>
+</div>

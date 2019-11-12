@@ -1,0 +1,17 @@
+.proposal-description {
+  background-color: #f8f9fa;
+  padding: 0 52px;
+}
+
+.proposal-description div {
+  padding: 10px 0;
+}
+
+.proposal-description__header {
+  color: #212529;
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+}

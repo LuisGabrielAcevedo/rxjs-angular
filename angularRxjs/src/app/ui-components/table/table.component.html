@@ -2,8 +2,12 @@
   <div class="table__content">
     <!-- Headers -->
     <div class="table__headers d-flex align-items-center">
-      <div *ngIf="expand" class="table__small p-2"></div>
-      <div *ngFor="let header of headers" class="p-2 table--flex">
+      <div *ngIf="expandComponent" class="table__small p-2"></div>
+      <div
+        *ngFor="let header of headers"
+        class="p-2 table--flex"
+        [ngClass]="{ 'd-none d-sm-block': !header.visibleOnMobile }"
+      >
         <span>{{ header.label }}</span>
       </div>
       <div class="table__button p-2" *ngFor="let button of rowActions"></div>
@@ -13,18 +17,38 @@
     <div class="table__data">
       <div class="table__data__row" *ngFor="let item of data; index as i">
         <div class="table__data__item d-flex align-items-center">
-          <div *ngIf="expand" class="table__small p-2">
-            <span class="fa fa-angle-up"></span>
+          <div
+            *ngIf="expandComponent"
+            class="table__small p-2"
+            (click)="openRows.includes(i) ? closeRow(i) : openRow(i)"
+          >
+            <span>></span>
           </div>
-          <div *ngFor="let data of headers" class="p-2 table--flex">
-            <span>Component</span>
+          <div
+            *ngFor="let header of headers"
+            class="p-2 table--flex"
+            [ngClass]="{ 'd-none d-sm-block': !header.visibleOnMobile }"
+          >
+            <app-dynamic-table-component
+              [item]="item"
+              [header]="header"
+            ></app-dynamic-table-component>
           </div>
           <div class="table__button p-2" *ngFor="let button of rowActions">
             <app-button></app-button>
           </div>
         </div>
+        <div *ngIf="openRows.includes(i) && expandComponent">
+          <app-dynamic-table-component
+            [component]="expandComponent"
+            [item]="item"
+          ></app-dynamic-table-component>
+        </div>
       </div>
     </div>
     <!-- Pagination -->
+    <div *ngIf="pagination" class="d-flex justify-content-end">
+      <app-paginator [pagination]="pagination"></app-paginator>
+    </div>
   </div>
 </div>

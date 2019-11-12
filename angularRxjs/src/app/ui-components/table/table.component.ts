@@ -17,13 +17,20 @@ export class TableComponent implements OnInit {
   @Input() public loading: boolean = false;
   @Input() public loadingType: string;
   @Input() public showIndex: boolean = false;
-  @Input() public expand: boolean = false;
+  @Input() public expandComponent: any = null;
   @Input() public rowActions: ITableAction[] = [];
   @Input() public pagination: ITablePagintation = null;
+  public openRows: number[] = [];
 
   constructor() {}
 
-  ngOnInit() {
-    console.log(this.headers, this.data, this.rowActions, this.pagination);
+  ngOnInit() {}
+
+  openRow(i: number) {
+    this.openRows.push(i);
+  }
+
+  closeRow(i: number) {
+    this.openRows.splice(this.openRows.indexOf(i), 1);
   }
 }

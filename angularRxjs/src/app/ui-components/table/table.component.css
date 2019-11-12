@@ -3,6 +3,7 @@
 
 .table__content {
   font-size: 13px;
+  overflow: hidden;
 }
 
 .table__headers {
@@ -20,7 +21,7 @@
   min-height: 43px;
 }
 
-.table__data__row:nth-child(odd) {
+.table__data__item:nth-child(odd) {
   background-color: #f3f4f4;
 }
 
@@ -33,7 +34,7 @@
 }
 
 .table__small {
-  width: 50px;
+  width: 30px;
 }
 
 .table--flex {

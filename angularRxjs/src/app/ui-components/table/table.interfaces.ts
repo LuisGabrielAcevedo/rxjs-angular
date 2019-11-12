@@ -3,6 +3,7 @@ export interface ITableHeader {
   key: string;
   component: ETableComponents;
   sortable?: string;
+  visibleOnMobile?: boolean;
 }
 
 export interface ITableItem {
@@ -10,7 +11,8 @@ export interface ITableItem {
 }
 
 export enum ETableComponents {
-  text = "TextComponent"
+  text = "TextComponent",
+  date = "DateComponent"
 }
 
 export interface ITableAction {
@@ -23,6 +25,10 @@ export interface ITablePagintation {
   page: number;
   perPage: number;
   total: number;
+  pages?: number;
+  limit1?: number;
+  limit2?: number;
+  tmpPages?: number[];
 }
 
 export interface ITableChanges {

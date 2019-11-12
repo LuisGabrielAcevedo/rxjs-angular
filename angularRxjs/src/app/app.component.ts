@@ -6,6 +6,7 @@ import {
   ITableAction,
   ITablePagintation
 } from "./ui-components/table/table.interfaces";
+import { ProposalDescriptionComponent } from "./proposal-description/proposal-description.component";
 
 @Component({
   selector: "app-root",
@@ -14,17 +15,20 @@ import {
 })
 export class AppComponent {
   title = "angularRxjs";
+  expandComponent: any = ProposalDescriptionComponent;
 
   public headers: ITableHeader[] = [
     {
       label: "Fecha",
       key: "date",
-      component: ETableComponents.text
+      component: ETableComponents.text,
+      visibleOnMobile: true
     },
     {
       label: "N° de propuesta",
       key: "proposalNumber",
-      component: ETableComponents.text
+      component: ETableComponents.text,
+      visibleOnMobile: true
     },
     {
       label: "DNI",
@@ -79,6 +83,6 @@ export class AppComponent {
   public pagination: ITablePagintation = {
     page: 1,
     perPage: 10,
-    total: 100
+    total: 500
   };
 }
